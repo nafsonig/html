@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background-color: white;
+            padding: 50px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        label {
+            font-size: 14px;
+            color: #333;
+        }
+
+
+        button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .user {
+            color: red;
+            font-size: 12px;
+            text-align: right;
+        }
+
+        .password {
+            color: red;
+            font-size: 12px;
+            text-align: right;
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+
+    <div class="container">
+        <form>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Username" oninput="user()">
+            <span class="user" id="user-error"></span>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" oninput="pass()">
+            <span class="password" id="password-error"></span>
+            <button type="submit" id="mysubmit">Submit</button>
+        </form>
+    </div>
+
+
+
+
+    <script>
+        // const usernameInput = document.getElementById('username').value;
+        // const passwordInput = document.getElementById('password').value;
+
+
+        function user() {
+            const usernameInput = document.getElementById('username').value;
+            const userError = document.getElementById('user-error');
+            if (usernameInput.length < 5) {
+                userError.innerHTML = 'Username must be at least 5 characters long ⚠️';
+            } else if (usernameInput.length > 15) {
+                userError.innerHTML = 'Username must be no more than 15 characters long ⚠️';
+                userError.style.color = 'red';
+            } else {
+                userError.innerHTML = 'Username is valid ✔️';
+                userError.style.color = 'green';
+            }
+        }
+
+       function pass() {
+
+        const passwordinput = document.getElementById('password').value;
+        const passwordError = document.getElementById('password-error');
+        const upperCase = /[A-Z]/.test(passwordinput);
+        const lowerCase = /[a-z]/.test(passwordinput);
+        const specialChar = /[@'".,/\#%*]/.test(passwordinput)
+        const number = /[1-9]/.test(passwordinput)
+
+       
+        if (passwordinput.length < 8){
+            passwordError.innerHTML = "Password Must Be Atleast 8 Characters"
+        } else if (!upperCase){
+            passwordError.innerHTML = "Password Must contain Upper Case Letter"
+        } else if (!lowerCase){
+            passwordError.innerHTML = "Password Must contain Lower Case Letter" 
+        } else if (!number){
+            passwordError.innerHTML = "Password Must contain Number"
+        } else if (!specialChar){
+            passwordError.innerHTML = "Password Must contain Character"
+        } else {
+            passwordError.innerHTML = "Pasword Is Valid ✔️"
+            passwordError.style.color='green'
+        }
+
+       } 
+       
+       function formData () {
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const usernameInput = document.getElementById('username').value;
+            const passwordinput = document.getElementById('password').value;
+            console.log(usernameInput, passwordinput);
+        });
+       }
+
+
+       formData()
+    </script>
+    
+</body>
+</html>

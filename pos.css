@@ -1,0 +1,37 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header{
+    height: 100vh;
+    background-color: #ccc;
+}
+
+
+nav{
+    padding: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: aqua;
+    position: static;
+    top: 0;
+    width: 100%;
+
+}
+
+.about , .contact, .service, footer{
+    height: 100vh;
+    text-align: center;
+    background-color: #ccc;
+}
+
+
+h2, footer {
+    font-size: 40px;
+    background-color: aqua;
+    padding: 20px;
+}
+

@@ -1,0 +1,26 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #ccc;
+}
+
+.card{
+    /* border: 1px solid red; */
+    width: 300px;
+    background-color: white;
+    margin: 20px;
+}
+
+.card h1{
+    background-color: rgb(15, 17, 138);
+    padding: 10px;
+    color: white;
+}
+
+.info{
+    padding: 20px;
+}
